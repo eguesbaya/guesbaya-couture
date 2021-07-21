@@ -1,14 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}{{ app.user.id }}- {{ app.user.firstname}} {{ app.user.lastname}}{% endblock %}
 
 {% block body %}
 <section class="container mt-5">
-    {% if app.user.roles == "ROLE_ADMIN" %}
-    Coucou
-    {% else %}
-    <h1>Client</h1>
-    {% endif %}
+    <h1>{{ app.user.firstname}} {{ app.user.lastname}}</h1>
+
 
     <table class="table">
         <tbody>
