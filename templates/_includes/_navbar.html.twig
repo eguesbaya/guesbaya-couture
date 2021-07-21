@@ -63,22 +63,34 @@
         <li class="nav-item">
           <a class="nav-link" href="#">À propos</a>
         </li>
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <li class="nav-item dropdown">
+        {% if is_granted('ROLE_ADMIN') %}
+          <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Bienvenue {{ app.user.firstname }} {{ app.user.lastname }}
+            Bienvenue Admin!
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Mes commandes</a></li>
-            <li><a class="dropdown-item" href="#">Mes informations</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{{ path('app_logout')}}">Se déconnecter</a></li>
-          </ul>
+              <li><a class="dropdown-item" href="#">Commandes</a></li>
+              <li><a class="dropdown-item" href="{{ path('client_index')}}">Clients</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{{ path('app_logout')}}">Se déconnecter</a></li>
+            </ul>
+        </li>
+        {% elseif is_granted('ROLE_USER') %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Bienvenue {{ app.user.firstname }} {{ app.user.lastname }} !
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Mes commandes</a></li>
+              <li><a class="dropdown-item" href="#">Mes informations</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{{ path('app_logout')}}">Se déconnecter</a></li>
+            </ul>
         </li>
         {% else %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Espace client
+              Connection
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{{ path('app_login')}}">Se connecter</a></li>
