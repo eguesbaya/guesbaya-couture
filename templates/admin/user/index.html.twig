@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients | Admin | Guesbaya Couture{% endblock %}
+
+{% block body %}
+{% include '_includes/_navbar.html.twig' %}
+<section class="container mt-5">
+    <h1>Liste des clients</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Vérifié?</th>
+                <th>Gérer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.firstname }} {{ user.lastname }}</td>
+                <td>{{ user.address }}</td>
+                <td><i class="bi bi-{{ user.isVerified ? 'check' : 'x' }}-square"></i></td>
+                <td>
+                    <a href="{{ path('user_show', {'id': user.id}) }}">Voir détails</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('user_new') }}">Créer nouveau client</a>
+</section>
+{% endblock %}
