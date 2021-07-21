@@ -31,6 +31,19 @@ class UserFixtures extends Fixture
         ));
         $manager->persist($client);
 
+        $admin = new User();
+        $admin->setEmail('admin@guesbaya-couture.com');
+        $admin->setFirstname('Emma');
+        $admin->setLastname('Guesbaya');
+        $admin->setRoles(['Admin']);
+        $admin->setAddress('chez moi');
+        $admin->setPassword($this->passwordHasher->hashPassword(
+            $admin,
+            'admin'
+        ));
+        $manager->persist($admin);
+
+
         $manager->flush();
     }
 }
