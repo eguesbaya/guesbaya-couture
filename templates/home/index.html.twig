@@ -18,22 +18,21 @@
         <h2>Choisis ton tissus</h2>
         <a href="https://www.picocleaners.com/blog/the-12-different-types-of-fabric/">En savoir plus sur les types de tissus</a>
     </div>
-    {% for fabric in fabrics %}
-        <div class="card mb-3">
-            <img src="{{ fabric.photo}}" class="card-img-top" alt="{{ fabric. name }}">
-            <div class="card-body">
-                <p class="card-text"><small class="text-muted">{{ fabric.type }}</small></p>
+    <div class="row">
+        {% for fabric in fabrics %}
+        <div class="col">
+            <div class="card bg-light">
+                <img src="{{ fabric.photo }}" class="card-img" alt="{{ fabric.name}}">
+                <div class="card-img-overlay">
+                    <p class="card-text">{{ fabric.type}}</p>
+                </div>
+                <div class = "card-body">
+                    <h5 class = "card-text">{{ fabric.name }}</h5>
+                </div>
             </div>
-            </div>
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-            <img src="..." class="card-img-bottom" alt="...">
-            </div>
-    {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
 </section
 
 {% endblock %}
