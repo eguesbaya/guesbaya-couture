@@ -17,10 +17,18 @@ class FabricType extends AbstractType
     {
 
         $builder
-            ->add('name', TextType::class)
-            ->add('photo', UrlType::class)
-            ->add('type', TextType::class)
-            ->add('priceByMetre', NumberType::class )
+            ->add('name', TextType::class, [
+                'label' => 'Nom'
+                ])
+            ->add('photo', UrlType::class, [
+                'label' => 'Photo'
+                ])
+            ->add('type', TextType::class, [
+                'label' => 'Type'
+                ])
+            ->add('priceByMetre', NumberType::class, [
+                'label' => 'Prix au mètre'
+                ] )
         ;
     }
 
