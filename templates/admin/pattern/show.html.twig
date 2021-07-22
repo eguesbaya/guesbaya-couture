@@ -1,31 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pattern{% endblock %}
+{% block title %}{{ pattern.name}} | Modèle | Admin | Guesbaya Couture{% endblock %}
 
 {% block body %}
-    <h1>Pattern</h1>
+    <h1>{{ pattern.name }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>N°</th>
                 <td>{{ pattern.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Photo</th>
+                <td><img src="{{ pattern.photo }}" alt="{{ pattern.name }}" width="150px"></td>
+            </tr>
+            <tr>
+                <th>Nom</th>
                 <td>{{ pattern.name }}</td>
             </tr>
             <tr>
-                <th>Photo</th>
-                <td>{{ pattern.photo }}</td>
-            </tr>
-            <tr>
-                <th>Gender</th>
+                <th>Genre</th>
                 <td>{{ pattern.gender }}</td>
             </tr>
             <tr>
-                <th>FabricQuantity</th>
-                <td>{{ pattern.fabricQuantity }}</td>
+                <th>Quantité de tissus</th>
+                <td>{{ pattern.fabricQuantity }} mètres</td>
             </tr>
             <tr>
                 <th>Type</th>
@@ -34,9 +34,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('pattern_index') }}">back to list</a>
+    <a href="{{ path('pattern_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('pattern_edit', {'id': pattern.id}) }}">edit</a>
+    <a href="{{ path('pattern_edit', {'id': pattern.id}) }}">Modifier</a>
 
     {{ include('admin/pattern/_delete_form.html.twig') }}
 {% endblock %}

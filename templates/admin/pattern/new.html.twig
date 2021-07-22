@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Pattern{% endblock %}
+{% block title %}Nouveau modèle | Admin | Guesbaya Couture{% endblock %}
 
 {% block body %}
-    <h1>Create new Pattern</h1>
+    <h1>Ajouter un nouveau modèle</h1>
 
     {{ include('admin/pattern/_form.html.twig') }}
 
-    <a href="{{ path('pattern_index') }}">back to list</a>
+    <a href="{{ path('pattern_index') }}">Retour à la liste</a>
 {% endblock %}

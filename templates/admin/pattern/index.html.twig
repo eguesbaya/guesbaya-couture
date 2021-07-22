@@ -1,34 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pattern index{% endblock %}
+{% block title %}Modèle | Admin | Guesbaya Couture{% endblock %}
 
 {% block body %}
-    <h1>Pattern index</h1>
+    <h1>Liste des modèles</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                <th>N°</th>
                 <th>Photo</th>
-                <th>Gender</th>
-                <th>FabricQuantity</th>
+                <th>Nom</th>
+                <th>Genre</th>
+                <th>Quantité de tissus</th>
                 <th>Type</th>
-                <th>actions</th>
+                <th>Gérer</th>
             </tr>
         </thead>
         <tbody>
         {% for pattern in patterns %}
             <tr>
                 <td>{{ pattern.id }}</td>
+                <td><img src="{{ pattern.photo }}" alt="{{ pattern.name }}" width="150px"></td>
                 <td>{{ pattern.name }}</td>
-                <td>{{ pattern.photo }}</td>
-                <td>{{ pattern.gender }}</td>
-                <td>{{ pattern.fabricQuantity }}</td>
+                <td>
+                    {% if pattern.gender == 'Femme' %}
+                        <i class="bi bi-gender-female"></i>
+                    {% elseif pattern.gender == 'Homme' %}
+                        <i class="bi bi-gender-female"></i>
+                    {% endif %}
+                </td>
+                <td>{{ pattern.fabricQuantity }} mètres</td>
                 <td>{{ pattern.Type }}</td>
                 <td>
-                    <a href="{{ path('pattern_show', {'id': pattern.id}) }}">show</a>
-                    <a href="{{ path('pattern_edit', {'id': pattern.id}) }}">edit</a>
+                    <a href="{{ path('pattern_show', {'id': pattern.id}) }}">Voir détails</a>
+                    <a href="{{ path('pattern_edit', {'id': pattern.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +45,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('pattern_new') }}">Create new</a>
+    <a href="{{ path('pattern_new') }}">Ajouter nouveau</a>
 {% endblock %}

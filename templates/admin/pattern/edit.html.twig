@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Pattern{% endblock %}
+{% block title %}Modifier {{ pattern.name}} | Modèles | Guesbaya Couture{% endblock %}
 
 {% block body %}
-    <h1>Edit Pattern</h1>
+    <h1>Modifier {{ pattern.name }}</h1>
 
-    {{ include('admin/pattern/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/pattern/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('pattern_index') }}">back to list</a>
+    <a href="{{ path('pattern_index') }}">Retour à la liste</a>
 
     {{ include('admin/pattern/_delete_form.html.twig') }}
 {% endblock %}
