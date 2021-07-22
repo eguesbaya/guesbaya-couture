@@ -1,28 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Order index{% endblock %}
+{% block title %}Commandes | Admin | Guesbaya Couture{% endblock %}
 
 {% block body %}
-    <h1>Order index</h1>
+    <h1>Toutes les commandes</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>ShippingAddress</th>
-                <th>Price</th>
-                <th>actions</th>
+                <th>N°</th>
+                <th>Modèle</th>
+                <th>Tissus</th>
+                <th>Destination</th>
+                <th>Prix</th>
+                <th>Gérer</th>
             </tr>
         </thead>
         <tbody>
         {% for order in orders %}
             <tr>
                 <td>{{ order.id }}</td>
+                <td>{{ order.pattern.name }}</td>
+                <td>{{ order.fabric.name }}</td>
                 <td>{{ order.shippingAddress }}</td>
-                <td>{{ order.price }}</td>
+                <td>{{ order.price }}€</td>
                 <td>
-                    <a href="{{ path('order_show', {'id': order.id}) }}">show</a>
-                    <a href="{{ path('order_edit', {'id': order.id}) }}">edit</a>
+                    <a href="{{ path('order_show', {'id': order.id}) }}">Voir détails</a>
                 </td>
             </tr>
         {% else %}
