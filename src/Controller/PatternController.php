@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/pattern")
+ * @IsGranted("ROLE_ADMIN")
  */
 class PatternController extends AbstractController
 {
