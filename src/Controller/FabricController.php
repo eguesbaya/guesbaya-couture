@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/fabric")
+ * @IsGranted("ROLE_ADMIN")
  */
 class FabricController extends AbstractController
 {
