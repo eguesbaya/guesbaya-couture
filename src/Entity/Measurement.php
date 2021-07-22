@@ -98,6 +98,11 @@ class Measurement
      */
     private $sleeveLength;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Order::class, mappedBy="measurements", cascade={"persist", "remove"})
+     */
+    private $orders;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -255,6 +260,23 @@ class Measurement
     public function setSleeveLength(?float $sleeveLength): self
     {
         $this->sleeveLength = $sleeveLength;
+
+        return $this;
+    }
+
+    public function getOrders(): ?Order
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(Order $orders): self
+    {
+        // set the owning side of the relation if necessary
+        if ($orders->getMeasurements() !== $this) {
+            $orders->setMeasurements($this);
+        }
+
+        $this->orders = $orders;
 
         return $this;
     }
