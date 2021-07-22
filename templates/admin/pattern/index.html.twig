@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modèle | Admin | Guesbaya Couture{% endblock %}
+
+{% block body %}
+    <h1>Liste des modèles</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Photo</th>
+                <th>Nom</th>
+                <th>Genre</th>
+                <th>Quantité de tissus</th>
+                <th>Type</th>
+                <th>Gérer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pattern in patterns %}
+            <tr>
+                <td>{{ pattern.id }}</td>
+                <td><img src="{{ pattern.photo }}" alt="{{ pattern.name }}" width="150px"></td>
+                <td>{{ pattern.name }}</td>
+                <td>
+                    {% if pattern.gender == 'Femme' %}
+                        <i class="bi bi-gender-female"></i>
+                    {% elseif pattern.gender == 'Homme' %}
+                        <i class="bi bi-gender-female"></i>
+                    {% endif %}
+                </td>
+                <td>{{ pattern.fabricQuantity }} mètres</td>
+                <td>{{ pattern.Type }}</td>
+                <td>
+                    <a href="{{ path('pattern_show', {'id': pattern.id}) }}">Voir détails</a>
+                    <a href="{{ path('pattern_edit', {'id': pattern.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pattern_new') }}">Ajouter nouveau</a>
+{% endblock %}
