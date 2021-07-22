@@ -129,12 +129,12 @@ class Measurement
 
     public function getBust(): ?float
     {
-        return $this->Bust;
+        return $this->bust;
     }
 
-    public function setBust(?float $Bust): self
+    public function setBust(?float $bust): self
     {
-        $this->Bust = $Bust;
+        $this->bust = $bust;
 
         return $this;
     }
@@ -237,12 +237,12 @@ class Measurement
 
     public function getBackLength(): ?float
     {
-        return $this->back_length;
+        return $this->backLength;
     }
 
-    public function setBackLength(?float $back_length): self
+    public function setBackLength(?float $backLength): self
     {
-        $this->back_length = $back_length;
+        $this->backLength = $backLength;
 
         return $this;
     }

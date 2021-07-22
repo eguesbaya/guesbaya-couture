@@ -59,4 +59,47 @@
     </div>
 </section>
 
+<section>
+    <div class ="d-flex justify-content-between align-items-baseline">
+        <h2>Renseigne tes mesures</h2>
+        <a href="https://www.youtube.com/watch?v=poLiCQLboXI">Comment prendre ses mesures</a>
+    </div>
+
+    <div class="row">
+        <div class='form-control w-50 col-6'>
+            {{ form(form) }}
+        </div>
+        {# Measurement form
+        <div class='form-control w-50 col-6'>
+                {{ form_start(form) }}
+                <div class="mb-3">
+                    <div class="form-error text-danger">
+                        {{ form_errors(form.shoulderWidth) }}
+                    </div>
+                    {{ form_label(form.shoulderWidth, 'Tour d\'épaules')}}
+                    {{ form_widget(form.shoulderWidth)}} mètres
+                </div>
+                <div class="mb-3">
+                    <div class="form-error text-danger">
+                        {{ form_errors(form.bust) }}
+                    </div>                   
+                    {{ form_label(form.bust, 'Tour de poitrine')}}
+                    {{ form_widget(form.bust)}} mètres
+                </div>
+                <div class="mb-3">
+                    <div class="form-error text-danger">
+                        {{ form_errors(form.waist) }}
+                    </div>
+                    {{ form_label(form.waist, 'Tour de taille')}}
+                    {{ form_widget(form.waist)}} mètres
+                </div>
+            <button class="btn btn-secondary">{{ button_label|default('Enregistrer') }}</button>
+            {{ form_end(form, {render_rest: false}) }}
+        </div>
+        End of form #}
+        <div class = "col-6">
+            <img src="{{ asset('build/images/measurements.jpg') }}" alt="Guide des mesures" class="w-100">
+        </div>
+</section>
+
 {% endblock %}
