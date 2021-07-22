@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit Pattern</h1>
 
-    {{ include('pattern/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/pattern/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('pattern_index') }}">back to list</a>
 
-    {{ include('pattern/_delete_form.html.twig') }}
+    {{ include('admin/pattern/_delete_form.html.twig') }}
 {% endblock %}

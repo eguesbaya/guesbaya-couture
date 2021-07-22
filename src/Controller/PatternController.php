@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Pattern;
 use App\Form\PatternType;
 use App\Repository\PatternRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/pattern")
@@ -21,7 +22,7 @@ class PatternController extends AbstractController
      */
     public function index(PatternRepository $patternRepository): Response
     {
-        return $this->render('pattern/index.html.twig', [
+        return $this->render('admin/pattern/index.html.twig', [
             'patterns' => $patternRepository->findAll(),
         ]);
     }
@@ -43,7 +44,7 @@ class PatternController extends AbstractController
             return $this->redirectToRoute('pattern_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('pattern/new.html.twig', [
+        return $this->renderForm('admin/pattern/new.html.twig', [
             'pattern' => $pattern,
             'form' => $form,
         ]);
@@ -54,7 +55,7 @@ class PatternController extends AbstractController
      */
     public function show(Pattern $pattern): Response
     {
-        return $this->render('pattern/show.html.twig', [
+        return $this->render('admin/pattern/show.html.twig', [
             'pattern' => $pattern,
         ]);
     }
@@ -73,7 +74,7 @@ class PatternController extends AbstractController
             return $this->redirectToRoute('pattern_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('pattern/edit.html.twig', [
+        return $this->renderForm('admin/pattern/edit.html.twig', [
             'pattern' => $pattern,
             'form' => $form,
         ]);
