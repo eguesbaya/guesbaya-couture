@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tissus | Admin | Guesbaya Couture{% endblock %}
+
+{% block body %}
+    <h1>Liste des tissus</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Photo</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Prix au mètre</th>
+                <th>Gérer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fabric in fabrics %}
+            <tr>
+                <td>{{ fabric.id }}</td>
+                <td><img src="{{ fabric.photo }}" alt="{{ fabric.name }}" width="150px"></td>
+                <td>{{ fabric.name }}</td>
+                <td>{{ fabric.type }}</td>
+                <td>{{ fabric.priceByMetre }}€</td>
+                <td>
+                    <a href="{{ path('fabric_show', {'id': fabric.id}) }}">Voir détail</a>
+                    <a href="{{ path('fabric_edit', {'id': fabric.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('fabric_new') }}">Ajouter nouveau</a>
+{% endblock %}

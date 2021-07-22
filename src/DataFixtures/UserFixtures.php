@@ -23,6 +23,7 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        //DEMO CLIENT
         $client = new User();
         $client->setEmail('client@couture.com');
         $client->setFirstname('Client');
@@ -35,6 +36,7 @@ class UserFixtures extends Fixture
         ));
         $manager->persist($client);
 
+        //DEMO ADMIN
         $admin = new User();
         $admin->setEmail('admin@guesbaya-couture.com');
         $admin->setFirstname('Emma');

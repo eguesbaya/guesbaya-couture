@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau tissus | Admin | Guesbaya Couture{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un nouveau tissus</h1>
+
+    {{ include('admin/fabric/_form.html.twig') }}
+
+    <a href="{{ path('fabric_index') }}">Retour à la liste</a>
+{% endblock %}

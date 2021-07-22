@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier {{ fabric.name}} | Tissus | Guesbaya Couture{% endblock %}
+
+{% block body %}
+<section class="container row mt-5">
+    <div class="col-6">
+        <h1>{{ fabric.name }}</h1>
+
+        {{ include('admin/fabric/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        <a href="{{ path('fabric_index') }}">Retour à la liste</a>
+
+        {{ include('admin/fabric/_delete_form.html.twig') }}
+    </div>
+    <div class="col-6">
+        <img src="{{ fabric.photo }}" alt="{{ fabric.name }}" class="w-100">
+    <div>
+</section>
+{% endblock %}

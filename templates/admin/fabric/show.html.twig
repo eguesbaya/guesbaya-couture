@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ fabric.name}} | Tissus | Admin | Guesbaya Couture{% endblock %}
+
+{% block body %}
+    <h1>{{ fabric.name }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>N°</th>
+                <td>{{ fabric.id }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="{{ fabric.photo }}" alt="{{ fabric.name }}" width="150px"></td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ fabric.name }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ fabric.type }}</td>
+            </tr>
+            <tr>
+                <th>Prix au mètre</th>
+                <td>{{ fabric.priceByMetre }} €</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('fabric_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('fabric_edit', {'id': fabric.id}) }}">Modifier</a>
+
+    {{ include('admin/fabric/_delete_form.html.twig') }}
+{% endblock %}
