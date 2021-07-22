@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FabricRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class Fabric
      * @ORM\Column(type="float", nullable=false)
      */
     private int $priceByMetre;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="fabric", orphanRemoval=true)
+     */
+    private $orders;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,36 @@ class Fabric
     public function setPriceByMetre(float $priceByMetre): self
     {
         $this->priceByMetre = $priceByMetre;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Order[]
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setFabric($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getFabric() === $this) {
+                $order->setFabric(null);
+            }
+        }
 
         return $this;
     }
