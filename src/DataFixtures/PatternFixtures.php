@@ -23,10 +23,28 @@ class PatternFixtures extends Fixture
 
         $pattern = new Pattern();
         $pattern->setName($faker->firstNameFemale());
-        $pattern->setPhoto('https://bit.ly/2W9OsB9');
+        $pattern->setPhoto('http://bit.ly/2W9OsB9');
         $pattern->setType('Robe');
         $pattern->setFabricQuantity($faker->randomFloat(2, 0, 5));
         $manager->persist($pattern);
+
+        $pattern = new Pattern();
+        $pattern->setName($faker->firstNameFemale());
+        $pattern->setPhoto('http://bit.ly/3rw8qBx');
+        $pattern->setType('Tunique');
+        $pattern->setGender('Femme');
+        $pattern->setFabricQuantity($faker->randomFloat(2, 0, 5));
+        $manager->persist($pattern);
+
+        $pattern = new Pattern();
+        $pattern->setName($faker->firstNameMale());
+        $pattern->setPhoto('http://bit.ly/2V2yfNF');
+        $pattern->setType('Chemise');
+        $pattern->setGender('Homme');
+        $pattern->setFabricQuantity($faker->randomFloat(2, 0, 5));
+        $manager->persist($pattern);
+
+
 
 
         $manager->flush();
