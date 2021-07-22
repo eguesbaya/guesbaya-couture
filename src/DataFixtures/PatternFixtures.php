@@ -20,6 +20,7 @@ class PatternFixtures extends Fixture
         $pattern->setType('Pantalon');
         $pattern->setFabricQuantity($faker->randomFloat(2,0,5));
         $manager->persist($pattern);
+        $this->addReference('pattern1', $pattern);
 
         $pattern = new Pattern();
         $pattern->setName($faker->firstNameFemale());
@@ -27,6 +28,8 @@ class PatternFixtures extends Fixture
         $pattern->setType('Robe');
         $pattern->setFabricQuantity($faker->randomFloat(2, 0, 5));
         $manager->persist($pattern);
+        $this->addReference('pattern2', $pattern);
+
 
         $pattern = new Pattern();
         $pattern->setName($faker->firstNameFemale());
@@ -35,6 +38,8 @@ class PatternFixtures extends Fixture
         $pattern->setGender('Femme');
         $pattern->setFabricQuantity($faker->randomFloat(2, 0, 5));
         $manager->persist($pattern);
+        $this->addReference('pattern3', $pattern);
+
 
         $pattern = new Pattern();
         $pattern->setName($faker->firstNameMale());
@@ -43,6 +48,8 @@ class PatternFixtures extends Fixture
         $pattern->setGender('Homme');
         $pattern->setFabricQuantity($faker->randomFloat(2, 0, 5));
         $manager->persist($pattern);
+        $this->addReference('pattern4', $pattern);
+
 
 
 
