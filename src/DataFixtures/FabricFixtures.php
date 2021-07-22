@@ -27,7 +27,7 @@ class FabricFixtures extends Fixture
 
             $viscose = new Fabric();
             $viscose->setName('Printemps');
-            $viscose->setPhoto('https: //bit.ly/2V1f3zF');
+            $viscose->setPhoto('https://bit.ly/2V1f3zF');
             $viscose->setPriceByMetre(12);
             $viscose->setType('viscose');
             $manager->persist($viscose);
