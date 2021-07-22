@@ -17,6 +17,7 @@ class FabricFixtures extends Fixture
             $linen->setPriceByMetre(20);
             $linen->setType('lin');
             $manager->persist($linen);
+            $this->addReference('fabric1', $linen);
 
             $cotton = new Fabric();
             $cotton->setName('Tie and dye');
@@ -24,6 +25,7 @@ class FabricFixtures extends Fixture
             $cotton->setPriceByMetre(8);
             $cotton->setType('cotton');
             $manager->persist($cotton);
+            $this->addReference('fabric2', $cotton);
 
             $viscose = new Fabric();
             $viscose->setName('Printemps');
@@ -31,6 +33,8 @@ class FabricFixtures extends Fixture
             $viscose->setPriceByMetre(12);
             $viscose->setType('viscose');
             $manager->persist($viscose);
+            $this->addReference('fabric3', $viscose);
+
 
             $denim = new Fabric();
             $denim->setName('Double Denim');
@@ -38,6 +42,8 @@ class FabricFixtures extends Fixture
             $denim->setPriceByMetre(15);
             $denim->setType('denim');
             $manager->persist($denim);
+            $this->addReference('fabric4', $denim);
+
 
             $cotton = new Fabric();
             $cotton->setName('Blanc');
@@ -45,6 +51,8 @@ class FabricFixtures extends Fixture
             $cotton->setPriceByMetre(8);
             $cotton->setType('cotton');
             $manager->persist($cotton);
+            $this->addReference('fabric5', $cotton);
+
 
             $manager->flush();
     }
