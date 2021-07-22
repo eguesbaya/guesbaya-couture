@@ -22,6 +22,7 @@ class StatusFixtures extends Fixture
             $status = new Status();
             $status->setStatus($state);
             $manager->persist($status);
+            $this->addReference($state, $status);
         }
 
         $manager->flush();

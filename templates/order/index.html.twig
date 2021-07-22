@@ -13,6 +13,7 @@
                 <th>Tissus</th>
                 <th>Destination</th>
                 <th>Prix</th>
+                <th>Statut</th>
                 <th>Gérer</th>
             </tr>
         </thead>
@@ -24,6 +25,7 @@
                 <td>{{ order.fabric.name }}</td>
                 <td>{{ order.shippingAddress }}</td>
                 <td>{{ order.price }}€</td>
+                <td>{{ order.status.status }}</td>
                 <td>
                     <a href="{{ path('order_show', {'id': order.id}) }}">Voir détails</a>
                 </td>

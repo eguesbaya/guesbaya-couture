@@ -56,6 +56,7 @@ class Order
      */
     private $status;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -132,4 +133,5 @@ class Order
 
         return $this;
     }
+
 }

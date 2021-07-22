@@ -26,6 +26,7 @@ class OrderFixtures extends Fixture implements DependentFixtureInterface
             $order->setMeasurements($this->getReference('measurement' . $i));
             $order->setShippingAddress($faker->address());
             $order->setPrice($faker->randomNumber(3, false));
+            $order->setStatus($this->getReference('pending'));
             $manager->persist($order);
         }
 
